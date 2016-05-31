@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px
+}
+
+/*Styling on Links LOVE Link, Visited, Hover, Active*/
+a:link {
+  color: darkblue;
+}
+a:visited {
+  color: darkblue;
+}
+a:hover {
+  color: black;
+}
+a:active {
+  color: red;
+}

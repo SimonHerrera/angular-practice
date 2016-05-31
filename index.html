@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Angular Practice</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+   </head>
+  <body ng-app="TodoApp">
+       <section ng-controller="TodoCtrl">
+
+      <h1>{{title}}</h1>
+
+      <div>
+        <label for="potato">Potato</label>
+        <input id="potato" type="text" ng-model="potato">
+        <div>{{potato}}</div>
+
+        <!-- <label for="filter2">Filter 2</label>
+        <input id="filter2" type="text" ng-model="filter2">
+
+        <input type="checkbox" ng-model="variableName">
+        <div>{{variableName}}</div> -->
+
+        <form ng-submit="addTodo()">
+          <input type="text" ng-model="newTodo">
+          <div class="input-group">
+            <input name="taskType" type="radio" value="home" ng-model="taskType">Home
+            <input name="taskType" type="radio" value="work" ng-model="taskType">Work
+          </div>
+          {{homeTask}}
+          <button type="submit" class="btn-default">New Todo</button>
+        </form>
+
+        <div>
+          <label for="type">Task Type</label>
+          <!-- belwo for each item name group by item type -->
+          <select id="type"
+            ng-model="selectedTodo"
+            ng-options="item.name group by item.type for item in tasks">
+          </select>
+        </div>
+
+        <div>
+          <h2>You have selected {{selectedTodo.name}}</h2>
+        </div>
+
+
+        <div>
+          <ul ng-repeat="var_name in tasks | filter: potato | filter: filter2">
+            <li>{{var_name.name}} <button ng-click="removeTodo(var_name)">Delete</button></li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Angular -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <!-- our scripts -->
+    <script src="app/app.js"></script>
+    <script src="app/controllers/todo.js"></script>
+  </body>
+</html>
